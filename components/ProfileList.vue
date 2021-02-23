@@ -4,6 +4,9 @@
     <section v-for="(user, key) in filteredData" :key="key">
       <ProfileCard :user="user"/>
     </section>
+    <section v-if="searchQuery && !filteredData.length" class="profile-list__empty">
+      <p>There are no users matching '{{searchQuery}}'</p>
+    </section>
   </section>
 </template>
 
@@ -40,7 +43,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
   .profile-list {
     min-width: 564px;
     max-width: 768px;
@@ -50,9 +53,19 @@ export default {
     font-size: 0.875rem;
     padding: 1.25rem 1rem 1.25rem 1rem;
     background-color: rgba(255, 255, 255, 1);
+
+    &__empty{
+      padding: 1.875rem;
+      margin-top: 1.429rem;
+      border-radius: 3px;
+      text-align: center;
+      box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.24), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+    }
   }
+
   @media (min-width: 769px) {
     .profile-list{
+      max-height: calc(100vh - (2* 1.875rem));
       margin: 1.875rem auto;
     }
   }

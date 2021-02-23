@@ -16,12 +16,6 @@ export default {
     ]
   },
 
-  generate: {
-    exclude: [
-      /^\/search/
-    ]
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],

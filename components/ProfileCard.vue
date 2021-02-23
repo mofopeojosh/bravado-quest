@@ -10,7 +10,7 @@
           <span v-highlight="searchQuery">{{user.email}}</span>
         </div>
         <p class="profile-card__title" v-highlight="searchQuery">{{user.title}}</p>
-        <p class="profile-card__address" v-highlight="searchQuery">{{user.address}}</p>
+        <p v-highlight="searchQuery">{{user.address}}</p>
       </div>
       <div class="profile-card__actions">
         <a class="link" href="#">MARK AS SUITABLE</a>
@@ -98,6 +98,7 @@ export default {
       border-top: 1px solid rgba(0, 0, 0, 0.12);
 
       .link {
+        text-decoration: none;
         font-weight: 500;
         color: rgba(0, 150, 136, 1);
       }

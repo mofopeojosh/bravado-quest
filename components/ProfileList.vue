@@ -5,7 +5,7 @@
       <ProfileCard :user="user"/>
     </section>
     <section v-if="searchQuery && !filteredData.length" class="profile-list__empty">
-      <p>There are no users matching '{{searchQuery}}'</p>
+      <p>There are no users profiles that match '{{searchQuery}}'</p>
     </section>
   </section>
 </template>
@@ -14,11 +14,6 @@
 import debounce from 'lodash.debounce';
 
 export default {
-  data() {
-    return {
-      loading: false,
-    };
-  },
   computed: {
     users() {
       return this.$store.state.users;

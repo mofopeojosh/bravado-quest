@@ -1,7 +1,7 @@
 <template>
-  <article class="profile-card">
+  <div class="profile-card">
     <div class="profile-card__image">
-      <img :src="user.avatar" :alt="user.name">
+      <img :src="user.avatar" :alt="user.name" height="136" width="134">
     </div>
     <div class="profile-card__body">
       <div class="profile-card__content">
@@ -13,10 +13,10 @@
         <p class="profile-card__address" v-highlight="searchQuery">{{user.address}}</p>
       </div>
       <div class="profile-card__actions">
-        <a class="link">MARK AS SUITABLE</a>
+        <a class="link" href="#">MARK AS SUITABLE</a>
       </div>
     </div>
-  </article>
+  </div>
 </template>
 
 <script>

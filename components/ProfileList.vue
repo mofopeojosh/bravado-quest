@@ -47,8 +47,6 @@ export default {
   .profile-list {
     min-width: 564px;
     max-width: 768px;
-    max-height: 100vh;
-    overflow: scroll;
     margin: auto;
     font-size: 0.875rem;
     padding: 1.25rem 1rem 1.25rem 1rem;
@@ -66,6 +64,7 @@ export default {
   @media (min-width: 769px) {
     .profile-list{
       max-height: calc(100vh - (2* 1.875rem));
+      overflow: scroll;
       margin: 1.875rem auto;
     }
   }

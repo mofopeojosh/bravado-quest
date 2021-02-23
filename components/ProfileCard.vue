@@ -75,12 +75,8 @@ export default {
     &__content {
       padding-left: 30px;
       padding-right: 10px;
-    }
-
-    &__header {
-      display: flex;
-      justify-content: space-between;
       padding-top: 8px;
+      padding-bottom: 8px;
     }
 
     &__name {
@@ -95,12 +91,25 @@ export default {
     }
 
     &__actions {
-      padding: 1rem 2.5rem;
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      padding: 0 2.5rem;
       border-top: 1px solid rgba(0, 0, 0, 0.12);
 
       .link {
         font-weight: 500;
         color: rgba(0, 150, 136, 1);
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    .profile-card {
+
+      &__header {
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

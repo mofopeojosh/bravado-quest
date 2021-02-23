@@ -47,7 +47,7 @@ export default {
     padding: 1.25rem 1rem 1.25rem 1rem;
     background-color: rgba(255, 255, 255, 1);
 
-    &__empty{
+    &__empty {
       padding: 1.875rem;
       margin-top: 1.429rem;
       border-radius: 3px;
@@ -57,8 +57,8 @@ export default {
   }
 
   @media (min-width: 769px) {
-    .profile-list{
-      max-height: calc(100vh - (2* 1.875rem));
+    .profile-list {
+      max-height: calc(100vh - (2 * 1.875rem));
       overflow: scroll;
       margin: 1.875rem auto;
     }

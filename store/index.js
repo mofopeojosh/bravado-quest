@@ -1,7 +1,7 @@
 export const state = () => ({
   users: [],
   searchQuery: ''
-})
+});
 
 export const mutations = {
   setUsers(state, users) {
@@ -10,19 +10,25 @@ export const mutations = {
   setSearchQuery(state, searchQuery) {
     state.searchQuery = searchQuery;
   }
-}
+};
 
 export const actions = {
-  async nuxtServerInit({ commit }, { $http }) {
-    const users = await $http.$get(`/users.json`);
-    commit('setUsers', users)
+  async nuxtServerInit({dispatch}) {
+    await dispatch('fetchUsers');
   },
-  updateSearchQuery({ commit }, searchQuery) {
-    if(searchQuery) {
+  async fetchUsers({commit, state}) {
+    if (!state.users.length) {
+      const users = await this.$http.$get(`/users.json`);
+      commit('setUsers', users);
+    }
+  },
+  async updateSearchQuery({commit, dispatch}, searchQuery) {
+    if (searchQuery) {
       this.$router.push(`/search/${searchQuery}`);
     } else {
       this.$router.push('/');
     }
-    commit('setSearchQuery', searchQuery || '')
+    await dispatch('fetchUsers');
+    commit('setSearchQuery', searchQuery || '');
   },
-}
+};

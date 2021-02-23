@@ -31,7 +31,7 @@ export default {
   },
   directives: {
     highlight: {
-      bind(el, binding) {
+      inserted(el, binding) {
         const content = el.innerHTML;
         el.innerHTML = content.replace(new RegExp(binding.value, 'gi'), (str) => {
           return `<span class="text--highlight">${str}</span>`;

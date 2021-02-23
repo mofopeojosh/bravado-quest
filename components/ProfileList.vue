@@ -1,10 +1,10 @@
 <template>
   <section class="profile-list">
     <SearchInput :value="searchQuery" @search="handleSearch"/>
-    <section v-for="(user, key) in filteredData" :key="key">
+    <section v-for="(user, key) in filteredUsers" :key="key+user.email">
       <ProfileCard :user="user"/>
     </section>
-    <section v-if="searchQuery && !filteredData.length" class="profile-list__empty">
+    <section v-if="searchQuery && !filteredUsers.length" class="profile-list__empty">
       <p>There are no users profiles that match '{{searchQuery}}'</p>
     </section>
   </section>
@@ -18,7 +18,7 @@ export default {
     users() {
       return this.$store.state.users;
     },
-    filteredData() {
+    filteredUsers() {
       return this.users.filter(user => {
         return user.name.toLowerCase().includes(this.searchQuery.toLowerCase())
           || user.title.toLowerCase().includes(this.searchQuery.toLowerCase())
